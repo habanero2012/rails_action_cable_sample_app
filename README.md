@@ -4,10 +4,11 @@
 
 Rails Tutorial の内容に以下の要素を追加したもの
 
-* Docker
+* Docker環境
 * ActionCableによるツイートのリアルタイム受信
 * RSpecによるテスト
 * Webpacker,React,TypeScriptを使用したフロントエンド開発
+* AdminLTEのテンプレート
 
 ## 初期設定
 

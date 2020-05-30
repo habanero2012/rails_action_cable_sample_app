@@ -1,0 +1,17 @@
+doctype html
+html[lang="ja"]
+  head
+    meta[charset="UTF-8"]
+    meta[name="viewport" content="width=device-width, initial-scale=1"]
+    meta[http-equiv="x-ua-compatible" content="ie=edge"]
+    title = full_title(yield(:title))
+    = render 'layouts/rails_default'
+  body.hold-transition.register-page
+    .register-box
+      .register-logo
+        a[href="/"]
+          b SampleApp
+      .card
+        .card-body.register-card-body
+          p.login-box-msg = yield(:title)
+          = yield

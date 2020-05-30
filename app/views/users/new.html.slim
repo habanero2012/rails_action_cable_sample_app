@@ -1,6 +1,29 @@
 - provide :title, 'Sign up'
 - provide :button_text, 'Create my account'
-h1 Sign up
-.row
-  .col-md-6.offset-md-3
-    = render 'form'
+
+= form_for(@user) do |f|
+  = render 'shared/error_messages', object: f.object
+  .input-group.mb-3
+    = f.text_field :name, class: 'form-control', placeholder: 'name'
+    .input-group-append
+      .input-group-text
+        span.fas.fa-user
+  .input-group.mb-3
+    = f.email_field :email, class: 'form-control', placeholder: 'Email'
+    .input-group-append
+      .input-group-text
+        span.fas.fa-envelope
+  .input-group.mb-3
+    = f.password_field :password, class: 'form-control', placeholder: 'Password'
+    .input-group-append
+      .input-group-text
+        span.fas.fa-lock
+  .input-group.mb-3
+    = f.password_field :password_confirmation, class: 'form-control', placeholder: 'Retype password'
+    .input-group-append
+      .input-group-text
+        span.fas.fa-lock
+  .row
+    .col-8
+    .col-4
+      = f.submit 'Register', class: 'btn btn-primary btn-block'

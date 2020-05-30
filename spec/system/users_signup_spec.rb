@@ -9,10 +9,10 @@ RSpec.describe 'user signup', test: :system do
     visit signup_path
 
     expect {
-      fill_in 'Email', with: 'user@example.com'
-      fill_in 'Password', with: 'foo'
-      fill_in 'Confirmation', with: 'bar'
-      click_button 'Create my account'
+      fill_in 'user[email]', with: 'user@example.com'
+      fill_in 'user[password]', with: 'foo'
+      fill_in 'user[password_confirmation]', with: 'bar'
+      click_button 'Register'
 
       expect(page).to have_content "Name can't be blank"
       expect(page).to have_content "Password is too short (minimum is 6 characters)"
@@ -24,11 +24,11 @@ RSpec.describe 'user signup', test: :system do
     visit signup_path
 
     expect {
-      fill_in 'Name', with: 'user'
-      fill_in 'Email', with: 'user@example.com'
-      fill_in 'Password', with: 'password'
-      fill_in 'Confirmation', with: 'password'
-      click_button 'Create my account'
+      fill_in 'user[name]', with: 'user'
+      fill_in 'user[email]', with: 'user@example.com'
+      fill_in 'user[password]', with: 'password'
+      fill_in 'user[password_confirmation]', with: 'password'
+      click_button 'Register'
 
       expect(page).to have_content 'Please check your email to activate your account.'
       expect(ActionMailer::Base.deliveries.count).to eq(1)

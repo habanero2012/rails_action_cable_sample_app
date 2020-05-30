@@ -33,6 +33,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails', '~> 4.0.0.beta'
   gem 'rubocop'
+  gem 'rubocop-rails'
 end
 
 group :development do

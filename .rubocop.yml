@@ -1,6 +1,9 @@
+require:
+  rubocop-rails
+
 AllCops:
   DisplayCopNames: true
-  TargetRubyVersion: 2.7.0
+  TargetRubyVersion: 2.7.1
   Exclude:
     - "bin/*"
     - "lib/**/*"
@@ -11,9 +14,6 @@ AllCops:
     - "Vagrantfile"
     - "spec/spec_helper.rb"
     - "spec/rails_helper.rb"
-
-Rails:
-  Enabled: true
 
 Layout/EndOfLine:
   Enabled: false
