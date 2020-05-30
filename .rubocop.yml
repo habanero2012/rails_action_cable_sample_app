@@ -45,6 +45,9 @@ Metrics/BlockLength:
 Metrics/AbcSize:
   Max: 100
 
+Metrics/MethodLength:
+  Max: 20
+
 Naming/FileName:
   Exclude:
     - "Gemfile"
