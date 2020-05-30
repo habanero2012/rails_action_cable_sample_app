@@ -1,8 +1,22 @@
-# Rails Tutorial
+# Rails ActionCable Sample App
 
 [![CircleCI](https://circleci.com/gh/habanero2012/rails_tutorial_sample_app.svg?style=svg&circle-token=cc1470e5238f81f6e4188c1e12909ca26bc46dd6)](<https://app.circleci.com/github/habanero2012/rails_tutorial_sample_app/pipelines>)
 
-Rails Tutorial をrspec,webpackerを使用して作成
+Rails Tutorial の内容に以下の要素を追加したもの
+
+* Docker
+* ActionCableによるツイートのリアルタイム受信
+* RSpecによるテスト
+* Webpacker,React,TypeScriptを使用したフロントエンド開発
+
+## 初期設定
+
+ソースコード一式をダウンロードしたら、下記のコマンドを順番に実行する
+
+1. DB作成
+2. migration実行
+3. 初期データ投入
+4. アプリケーション起動
 
 #### DB作成
 ```bash
