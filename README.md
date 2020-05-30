@@ -1,6 +1,6 @@
 # Rails ActionCable Sample App
 
-[![CircleCI](https://circleci.com/gh/habanero2012/rails_tutorial_sample_app.svg?style=svg&circle-token=cc1470e5238f81f6e4188c1e12909ca26bc46dd6)](<https://app.circleci.com/github/habanero2012/rails_tutorial_sample_app/pipelines>)
+[![CircleCI](https://circleci.com/gh/habanero2012/rails_action_cable_sample_app.svg?style=svg&circle-token=18c26816b3e785376893c32a10f2aac510e1ea84)](<https://app.circleci.com/github/habanero2012/rails_action_cable_sample_app/pipelines>)
 
 Rails Tutorial の内容に以下の要素を追加したもの
 
