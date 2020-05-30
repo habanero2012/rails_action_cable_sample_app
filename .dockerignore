@@ -1,0 +1,9 @@
+.git
+.gitignore
+READEME.md
+
+.env
+.env.sample
+node_modules
+tmp
+log

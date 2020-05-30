@@ -1,0 +1,50 @@
+AllCops:
+  DisplayCopNames: true
+  TargetRubyVersion: 2.7.0
+  Exclude:
+    - "bin/*"
+    - "lib/**/*"
+    - "config/**/*"
+    - "db/**/*"
+    - "vendor/**/*"
+    - "node_modules/**/*"
+    - "Vagrantfile"
+    - "spec/spec_helper.rb"
+    - "spec/rails_helper.rb"
+
+Rails:
+  Enabled: true
+
+Layout/EndOfLine:
+  Enabled: false
+
+Style/BlockDelimiters:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# Document classes and non-namespace modules.
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - "spec/**/*"
+
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*"
+
+Metrics/AbcSize:
+  Max: 100
+
+Metrics/LineLength:
+  Max: 120
+
+Naming/FileName:
+  Exclude:
+    - "Gemfile"
