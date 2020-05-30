@@ -2,7 +2,7 @@ version: 2
 
 references:
   default_docker_ruby_executor: &default_docker_ruby_executor
-    image: circleci/ruby:2.7.0-node-browsers
+    image: circleci/ruby:2.7.1-node-browsers
     environment:
       BUNDLE_PATH: vendor/bundle
       DATABASE_HOST: 127.0.0.1
