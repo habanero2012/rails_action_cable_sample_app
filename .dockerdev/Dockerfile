@@ -1,6 +1,6 @@
 FROM node:12.15.0-alpine as node
 
-FROM ruby:2.7.0-alpine as dev
+FROM ruby:2.7.1-alpine as dev
 
 ARG BUNDLER_VERSION="2.1.4"
 
@@ -39,7 +39,7 @@ RUN yarn install
 RUN RAILS_ENV=production bundle exec rails assets:precompile
 
 
-FROM ruby:2.7.0-alpine as production
+FROM ruby:2.7.1-alpine as production
 
 # install dependencies
 RUN apk --update --no-cache add shadow sudo busybox-suid execline tzdata mariadb-connector-c-dev imagemagick && \
