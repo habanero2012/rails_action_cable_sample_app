@@ -18,6 +18,9 @@ Rails:
 Layout/EndOfLine:
   Enabled: false
 
+Layout/LineLength:
+  Max: 120
+
 Style/BlockDelimiters:
   Enabled: false
 
@@ -41,9 +44,6 @@ Metrics/BlockLength:
 
 Metrics/AbcSize:
   Max: 100
-
-Metrics/LineLength:
-  Max: 120
 
 Naming/FileName:
   Exclude:
