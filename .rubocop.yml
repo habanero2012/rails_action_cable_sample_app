@@ -21,6 +21,9 @@ Layout/EndOfLine:
 Layout/LineLength:
   Max: 120
 
+Style/AsciiComments:
+  Enabled: false
+
 Style/BlockDelimiters:
   Enabled: false
 

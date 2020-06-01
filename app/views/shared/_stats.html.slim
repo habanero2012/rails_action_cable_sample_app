@@ -1,10 +1,12 @@
 - @user ||= current_user
-.stats
-  a href="#{following_user_path(@user)}"
-    strong#following.stat
-      = @user.following.count
-    | following
-  a href="#{followers_user_path(@user)}"
-    strong#followers.stat
-      = @user.followers.count
-    | followers
+
+ul.list-group.list-group-unbordered.mb-3
+  li.list-group-item
+    b Followers
+    a.float-right href="#{followers_user_path(@user)}" = @user.followers.count
+  li.list-group-item
+    b Following
+    a.float-right href="#{following_user_path(@user)}" = @user.following.count
+  li.list-group-item
+    b Microposts
+    a.float-right = @user.microposts.count

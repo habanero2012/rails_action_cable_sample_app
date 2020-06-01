@@ -1,17 +1,19 @@
 - provide :title, @user.name
-.row
-  aside.col-md-4
-    section.user_info
-      h1
-        = gravatar_for @user
-        = @user.name
-    section.stats
-      = render 'shared/stats'
-  .col-md-8
-    = render 'follow_form' if logged_in?
-    - if @user.microposts.any?
-      h3
-        | Microposts (#{@user.microposts.count})
-      ol.microposts
-        = render @microposts
-      = paginate @microposts
+- provide :content_header, 'Profile'
+
+section.content
+  .container-fluid
+    .row
+      .col-md-3
+        .card.card-primary.card-outline
+          .card-body.box-profile
+            .text-center = gravatar_for(@user, class_name: 'profile-user-img img-fluid img-circle')
+            h3.profile-username.text-center = @user.name
+            = render 'shared/stats'
+            = render 'follow_form' if logged_in?
+      .col-md-9
+        .card
+          .card-body
+            = render @microposts
+        .mb-3
+          = paginate @microposts

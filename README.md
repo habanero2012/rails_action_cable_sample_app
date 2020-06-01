@@ -9,6 +9,7 @@ Rails Tutorial の内容に以下の要素を追加したもの
 * RSpecによるテスト
 * Webpacker,React,TypeScriptを使用したフロントエンド開発
 * AdminLTEのテンプレート
+* slimテンプレート
 
 ## 初期設定
 

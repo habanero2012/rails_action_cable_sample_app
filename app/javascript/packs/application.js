@@ -13,5 +13,6 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+import 'admin-lte/dist/js/adminlte.min'
 import '../scss/application.scss';
 import '../images/rails.png';
