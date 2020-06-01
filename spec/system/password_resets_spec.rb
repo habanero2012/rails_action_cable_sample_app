@@ -10,7 +10,7 @@ RSpec.describe 'password resets', test: :system do
   it 'メールアドレスが無効' do
     visit new_password_reset_path
     fill_in 'Email', with: ''
-    click_button 'Submit'
+    click_button 'Reset password'
     expect(page).to have_content 'Email address not found'
   end
 
@@ -19,7 +19,7 @@ RSpec.describe 'password resets', test: :system do
 
     expect {
       fill_in 'Email', with: user.email
-      click_button 'Submit'
+      click_button 'Reset password'
       expect(page).to have_content 'Email sent with password reset instructions'
       expect(page).to have_current_path root_path
     }.to change(ActionMailer::Base.deliveries, :count).by(1)
@@ -70,7 +70,7 @@ RSpec.describe 'password resets', test: :system do
 
     expect {
       fill_in 'Email', with: user.email
-      click_button 'Submit'
+      click_button 'Reset password'
       expect(page).to have_content 'Email sent with password reset instructions'
       expect(page).to have_current_path root_path
     }.to change(ActionMailer::Base.deliveries, :count).by(1)

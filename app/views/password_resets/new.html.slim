@@ -1,8 +1,19 @@
 - provide(:title, 'Forgot password')
-h1 Forgot password
-.row
-  .col-md-6.offset-md-3
-    = form_for(:password_reset, url: password_resets_path) do |f|
-      = f.label :email
-      = f.email_field :email, class: 'form-control'
-      = f.submit 'Submit', class: 'btn btn-primary'
+
+= form_for(:password_reset, url: password_resets_path) do |f|
+  = render 'shared/flash_alert'
+
+  .input-group.mb-3
+    = f.email_field :email, class: 'form-control', placeholder: 'Email'
+    .input-group-append
+      .input-group-text
+        span.fas.fa-envelope
+  .row.mb-3
+    .col-12
+      = f.submit 'Reset password', class: 'btn btn-primary btn-block'
+  .row
+    .col-12
+      = link_to 'Login', login_path
+    .col-12
+      p
+        | New user? #{link_to 'Sign up now!', signup_path}
