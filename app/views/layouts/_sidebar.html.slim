@@ -4,12 +4,13 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4
     span.brand-text.font-weight-light
       | Sample App
   .sidebar
-    .user-panel.mt-3.pb-3.mb-3.d-flex
-      .image
-        = gravatar_for(current_user, class_name: 'img-circle elevation-2')
-      .info
-        a.d-block[href="#"]
-          = current_user.name
+    - if current_user
+      .user-panel.mt-3.pb-3.mb-3.d-flex
+        .image
+          = gravatar_for(current_user, class_name: 'img-circle elevation-2')
+        .info
+          a.d-block[href="#"]
+            = current_user.name
     nav.mt-2
       ul.nav.nav-pills.nav-sidebar.flex-column[data-widget="treeview" role="menu" data-accordion="false"]
         li.nav-item
@@ -25,3 +26,7 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4
           a.nav-link[href="#"]
             i.nav-icon.fas.fa-edit
             p Settings
+          - if current_user
+            = link_to(logout_path, method: :delete, class: 'nav-link') do
+              i.nav-icon.fas.fa-edit
+              p Log out

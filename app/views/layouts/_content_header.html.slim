@@ -3,3 +3,7 @@
     .row.mb-2
       .col-sm-12
         h1.m-0.text-dark = yield(:content_header)
+    - unless flash.empty?
+      .row.mb-2
+        .col-sm-12
+          = render 'shared/flash_alert'

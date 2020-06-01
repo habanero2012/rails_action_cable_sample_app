@@ -13,7 +13,7 @@ section.content
             = render 'follow_form' if logged_in?
       .col-md-9
         .card
-          .card-body
+          .card-body.microposts
             = render @microposts
         .mb-3
           = paginate @microposts
