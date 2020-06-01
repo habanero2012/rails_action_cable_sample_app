@@ -17,15 +17,17 @@
           .mb-3
             = paginate @feed_items
 - else
-  .center.jumbotron
-    h1 Welcome to the Sample App
-    h2
-      | This is the home page for the
-      a href='https://railstutorial.jp/'  Ruby on Rails Tutorial
-      | sample application.
-    = link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary'
-  = link_to 'http://rubyonrails.org', target: '_blank' do
-    img src= asset_pack_path('media/images/rails.png', alt: 'Rails logo')
+  - provide :content_header, 'Sample App'
+  section.content
+    .container-fluid
+      .row
+        .col-md-12
+          .center.jumbotron
+            h1 Welcome to the Sample App
+            h2
+              a href='https://railstutorial.jp/' target='_blank' Ruby on Rails Tutorial
+              | にいくつかの機能を追加したアプリーケーション
+            = link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary'
 
 = javascript_pack_tag 'micropost'
 = javascript_pack_tag 'hello_react'
