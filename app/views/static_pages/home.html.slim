@@ -1,15 +1,21 @@
 - if logged_in?
-  .row
-    aside.col-md-4
-      section.user_info
-        = render 'shared/user_info'
-      section.stats
-        = render 'shared/stats'
-      section.micropost_form
-        = render 'shared/micropost_form'
-    .col-md-8
-      h3 Micropost Feed
-      = render 'shared/feed'
+  - provide :content_header, 'Micropost Feeds'
+  section.content
+    .container-fluid
+      .row
+        .col-md-3
+          .card.card-primary.card-outline
+            .card-body.box-profile
+              .text-center = gravatar_for(current_user, class_name: 'profile-user-img img-fluid img-circle')
+              h3.profile-username.text-center = current_user.name
+              = render 'shared/stats'
+              = render 'shared/micropost_form'
+        .col-md-9
+          .card
+            .card-body.microposts
+              = render @feed_items
+          .mb-3
+            = paginate @feed_items
 - else
   .center.jumbotron
     h1 Welcome to the Sample App
