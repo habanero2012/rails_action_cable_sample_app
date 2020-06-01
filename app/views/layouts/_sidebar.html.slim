@@ -1,5 +1,5 @@
 aside.main-sidebar.sidebar-dark-primary.elevation-4
-  a.brand-link[href="index3.html"]
+  a.brand-link[href="/"]
     img.brand-image.img-circle.elevation-3[src="/img/AdminLTELogo.png" alt="AdminLTE Logo" style="opacity: .8"]
     span.brand-text.font-weight-light
       | Sample App
@@ -11,22 +11,26 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4
         .info
           a.d-block[href="#"]
             = current_user.name
-    nav.mt-2
-      ul.nav.nav-pills.nav-sidebar.flex-column[data-widget="treeview" role="menu" data-accordion="false"]
-        li.nav-item
-          a.nav-link[href="#"]
-            i.nav-icon.fas.fa-th
-            p Home
-          a.nav-link[href="#"]
-            i.nav-icon.fas.fa-child
-            p Users
-          a.nav-link[href="#"]
-            i.nav-icon.fas.fa-copy
-            p Profile
-          a.nav-link[href="#"]
-            i.nav-icon.fas.fa-edit
-            p Settings
-          - if current_user
-            = link_to(logout_path, method: :delete, class: 'nav-link') do
+      nav.mt-2
+        ul.nav.nav-pills.nav-sidebar.flex-column[data-widget="treeview" role="menu" data-accordion="false"]
+          li.nav-item
+            = link_to(home_path, class: 'nav-link') do
+              i.nav-icon.fas.fa-home
+              p Home
+          li.nav-item
+            = link_to(users_path, class: 'nav-link') do
+              i.nav-icon.fas.fa-child
+              p Users
+          li.nav-item
+            = link_to(user_path(current_user), class: 'nav-link') do
+              i.nav-icon.fas.fa-copy
+              p Profile
+          li.nav-item
+            a.nav-link[href="#"]
               i.nav-icon.fas.fa-edit
-              p Log out
+              p Settings
+            - if current_user
+              li.nav-item
+                = link_to(logout_path, method: :delete, class: 'nav-link') do
+                  i.nav-icon.fas.fa-sign-out-alt
+                  p Log out
