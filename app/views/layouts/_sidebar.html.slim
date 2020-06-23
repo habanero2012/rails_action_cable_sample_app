@@ -16,7 +16,7 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4
           li.nav-item
             = link_to(root_path, class: 'nav-link') do
               i.nav-icon.fas.fa-home
-              p Home
+              p Micropost Feeds
           li.nav-item
             = link_to(users_path, class: 'nav-link') do
               i.nav-icon.fas.fa-child
@@ -26,7 +26,7 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4
               i.nav-icon.fas.fa-copy
               p Profile
           li.nav-item
-            a.nav-link[href="#"]
+            = link_to(edit_user_path(current_user), class: 'nav-link') do
               i.nav-icon.fas.fa-edit
               p Settings
             - if current_user

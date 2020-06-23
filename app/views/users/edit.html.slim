@@ -1,9 +1,25 @@
-- provide :title, 'Edit user'
-- provide :button_text, 'Save changes'
-h1 Update your profile
-.row
-  .col-md-6.offset-md-3
-    = render 'form'
-    .gravatar_edit
-      = gravatar_for @user
-      a href="http://gravatar.com/emails" target="_blank" change
+- provide :title, 'Settings'
+- provide :content_header, 'Settings'
+
+section.content
+  .col-md-12
+    .card.card-primary
+      .card-header
+        h3.card-title Update your profile
+      = form_for(@user) do |f|
+        .card-body
+          = render 'shared/error_messages', object: f.object
+          .form-group
+            = f.label :name
+            = f.text_field :name, class: 'form-control'
+          .form-group
+            = f.label :email
+            = f.email_field :email, class: 'form-control'
+          .form-group
+            = f.label :password
+            = f.password_field :password, class: 'form-control'
+          .form-group
+            = f.label :password_confirmation, 'Confirmation'
+            = f.password_field :password_confirmation, class: 'form-control'
+        .card-footer
+          = f.submit 'Save changes', class: 'btn btn-primary'
