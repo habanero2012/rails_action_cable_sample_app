@@ -14,6 +14,10 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4
       nav.mt-2
         ul.nav.nav-pills.nav-sidebar.flex-column[data-widget="treeview" role="menu" data-accordion="false"]
           li.nav-item
+            = link_to(user_path(current_user), class: 'nav-link') do
+              i.nav-icon.fas.fa-copy
+              p Profile
+          li.nav-item
             = link_to(root_path, class: 'nav-link') do
               i.nav-icon.fas.fa-home
               p Micropost Feeds
@@ -21,10 +25,6 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4
             = link_to(users_path, class: 'nav-link') do
               i.nav-icon.fas.fa-child
               p Users
-          li.nav-item
-            = link_to(user_path(current_user), class: 'nav-link') do
-              i.nav-icon.fas.fa-copy
-              p Profile
           li.nav-item
             = link_to(edit_user_path(current_user), class: 'nav-link') do
               i.nav-icon.fas.fa-edit
