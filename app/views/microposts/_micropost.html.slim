@@ -8,5 +8,6 @@
   p = micropost.content
   - if micropost.picture.attached?
     = image_tag micropost.picture.variant(resize: '400x400')
+    br
   - if current_user?(micropost.user)
     = link_to 'delete', micropost, method: :delete, data: {confirm: 'You sure?'}
