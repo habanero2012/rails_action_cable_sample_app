@@ -1,6 +1,17 @@
-- provide(:title, 'All users')
-h1 All users
-= paginate @users
-ul.users
-  = render @users
-= paginate @users
+- provide :title, 'All users'
+- provide :content_header, 'All users'
+
+section.content
+  .col-md-12
+    .mb-3
+      = paginate @users
+    .card.card-primary.card-outline
+      .card-header
+        h3.card-title User list
+      .card-body.p-0
+        .table-responsive.mailbox-messages
+          table.table.table-hover.table-striped
+            tbody
+              = render @users
+    .mt-3.pb-3
+      = paginate @users
