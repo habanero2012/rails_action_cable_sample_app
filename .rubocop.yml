@@ -19,7 +19,7 @@ Layout/EndOfLine:
   Enabled: false
 
 Layout/LineLength:
-  Max: 120
+  Max: 140
 
 Style/AsciiComments:
   Enabled: false

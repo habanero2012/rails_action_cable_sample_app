@@ -11,11 +11,13 @@
               = render 'shared/stats'
               = render 'shared/micropost_form'
         .col-md-9
+          #app data-microposts=@json_feed_items data-login-id=current_user.id
           .card
             .card-body.microposts
               = render @feed_items
           .mb-3
             = paginate @feed_items
+  = javascript_pack_tag 'timeline'
 - else
   - provide :content_header, 'Sample App'
   section.content
@@ -31,5 +33,3 @@
             = link_to 'Log in', login_path, class: 'btn btn-lg bg-olive'
 
 = javascript_pack_tag 'micropost'
-= javascript_pack_tag 'hello_react'
-= javascript_pack_tag 'hello_typescript'
