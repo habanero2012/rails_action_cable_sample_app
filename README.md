@@ -4,16 +4,18 @@
 
 Rails Tutorial の内容に以下の要素を追加したもの
 
-* Docker環境
-* ActionCableによるツイートのリアルタイム受信
+* React, ActionCableによるツイートのリアルタイム受信
+* Webpacker,TypeScriptを使用したフロントエンド開発
+* Sidekiqによる非同期処理
 * RSpecによるテスト
-* Webpacker,React,TypeScriptを使用したフロントエンド開発
-* AdminLTEのテンプレート
-* slimテンプレート
+* 画面デザインにAdminLTEのテンプレートを使用
+* viewにslimテンプレートを使用
+* Docker開発環境
+* circleciの自動テスト
 
 ## 初期設定
 
-ソースコード一式をダウンロードしたら、下記のコマンドを順番に実行する
+ソースコード一式をダウンロードしたら、下記の1～4のコマンドを順番に実行する
 
 1. DB作成
 2. migration実行
