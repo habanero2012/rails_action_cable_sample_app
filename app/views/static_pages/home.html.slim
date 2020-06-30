@@ -10,13 +10,9 @@
               h3.profile-username.text-center = current_user.name
               = render 'shared/stats'
               = render 'shared/micropost_form'
-        .col-md-9
+        .col-md-9.pb-3
           #app data-microposts=@json_feed_items data-login-id=current_user.id
-          .card
-            .card-body.microposts
-              = render @feed_items
-          .mb-3
-            = paginate @feed_items
+
   = javascript_pack_tag 'timeline'
 - else
   - provide :content_header, 'Sample App'

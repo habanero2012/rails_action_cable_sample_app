@@ -1,3 +1,5 @@
+import {FINISH_FETCH_FEEDS, START_FETCH_FEEDS, TimeLineAction} from "../actions/tileline";
+
 type User = {
     id: number,
     name: string,
@@ -14,23 +16,26 @@ export type Micropost = {
     created_at: string,
 }
 
-type Action = {
-    type: string,
-    payload: any,
-}
-
 export type State = {
     loginId: number,
-    microposts: Micropost[]
+    microposts: Micropost[],
+    startFetchFeeds: boolean,
 }
 
 export const initialState: State = {
     loginId: -1,
     microposts: [],
+    startFetchFeeds: false,
 };
 
-const reducer = (state: State, action: Action): State => {
-    console.log(state);
+const reducer = (state: State, action: TimeLineAction): State => {
+    switch (action.type) {
+        case START_FETCH_FEEDS:
+            return {...state, startFetchFeeds: true};
+        case FINISH_FETCH_FEEDS:
+            const microposts = state.microposts.concat(action.payload.microposts);
+            return {...state, microposts, startFetchFeeds: false};
+    }
     return state;
 }
 
