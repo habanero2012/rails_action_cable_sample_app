@@ -6,7 +6,7 @@ class MicropostsController < ApplicationController
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
       flash[:success] = 'Micropost created!'
-      TimelineChannel.broadcast_to(current_user, MicropostSerializer.new(@micropost).to_json)
+      BroadcastService.new(current_user, @micropost).call
       redirect_to root_path
     else
       @feed_items = current_user.feed.page(1).per(10)
