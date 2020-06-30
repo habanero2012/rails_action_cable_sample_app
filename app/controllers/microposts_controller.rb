@@ -6,7 +6,7 @@ class MicropostsController < ApplicationController
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
       flash[:success] = 'Micropost created!'
-      BroadcastService.new(current_user, @micropost).call
+      BroadcastJob.perform_later(@micropost)
       redirect_to root_path
     else
       @feed_items = current_user.feed.page(1).per(10)

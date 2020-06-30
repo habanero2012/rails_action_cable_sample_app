@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
 class BroadcastService
-  def initialize(user, micropost)
-    @user = user
+  def initialize(micropost)
     @micropost = micropost
   end
 
   def call
-    @user.followers.each { |follower| broadcast(follower) }
+    @micropost.user.followers.each { |follower| broadcast(follower) }
   end
 
   private
