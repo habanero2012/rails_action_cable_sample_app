@@ -29,6 +29,7 @@ services:
       - "./.dockerdev/env/app.env"
     depends_on:
       - db
+      - redis
       - chrome
       - minio
     stdin_open: true
@@ -43,6 +44,24 @@ services:
       - "3035:3035"
     env_file:
       - "./.dockerdev/env/webpaker.env"
+
+  sidekiq:
+    <<: *rails_template
+    command: bundle exec sidekiq
+    volumes:
+      - .:/app_home
+    depends_on:
+      - db
+      - redis
+    env_file:
+      - "./.dockerdev/env/sidekiq.env"
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
 
   chrome:
     image: selenium/standalone-chrome-debug:3.141.59
@@ -63,4 +82,5 @@ services:
 volumes:
   minio-data:
   mysql-data:
+  redis-data:
 

@@ -31,6 +31,8 @@ module AppHome
 
     config.time_zone = 'Asia/Tokyo'
 
+    config.active_job.queue_adapter = :sidekiq
+
     # Don't generate system test files.
     config.generators.system_tests = nil
 
