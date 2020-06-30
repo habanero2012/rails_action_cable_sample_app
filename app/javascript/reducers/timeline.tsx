@@ -1,4 +1,4 @@
-import {FINISH_FETCH_FEEDS, START_FETCH_FEEDS, TimeLineAction} from "../actions/tileline";
+import {FINISH_FETCH_FEEDS, RECEIVE_LATEST_MICROPOST, START_FETCH_FEEDS, TimeLineAction} from "../actions/tileline";
 
 type User = {
     id: number,
@@ -33,8 +33,11 @@ const reducer = (state: State, action: TimeLineAction): State => {
         case START_FETCH_FEEDS:
             return {...state, startFetchFeeds: true};
         case FINISH_FETCH_FEEDS:
-            const microposts = state.microposts.concat(action.payload.microposts);
+            let microposts = state.microposts.concat(action.payload.microposts);
             return {...state, microposts, startFetchFeeds: false};
+        case RECEIVE_LATEST_MICROPOST:
+            microposts = [action.payload.micropost].concat(state.microposts);
+            return {...state, microposts};
     }
     return state;
 }
