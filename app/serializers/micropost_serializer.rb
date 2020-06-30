@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class MicropostSerializer < ActiveModel::Serializer
-  attributes :id, :content, :created_at
+  attributes :id, :content
   belongs_to :user, serializer: UserSerializer
 
+  attribute(:created_at) { object.created_at.strftime('%Y-%m-%d %H:%M:%S') }
   attribute(:path) { Rails.application.routes.url_helpers.micropost_path(object) }
 
   attribute(:picture_path) do

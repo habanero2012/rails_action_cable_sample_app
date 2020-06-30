@@ -25,7 +25,7 @@ const Micropost: FC<Props> = ({micropost, loginId}) => {
                 <span className="username">
                     <a href={micropost.user.user_path}>{micropost.user.name}</a>
                 </span>
-                <span className="description">Posted 6 days ago. </span>
+                <span className="description">{micropost.created_at}</span>
             </div>
             <p>{micropost.content}</p>
             {img}
