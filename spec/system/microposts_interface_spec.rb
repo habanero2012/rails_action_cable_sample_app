@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'micropost interface', test: :system do
+RSpec.describe 'micropost interface', test: :system, js: true do
 
   let(:user) { create(:user) }
 
@@ -26,7 +26,10 @@ RSpec.describe 'micropost interface', test: :system do
 
     # 投稿を削除する
     expect {
-      first('.microposts').click_link 'delete'
+      page.accept_confirm do
+        first('.microposts').click_link 'delete'
+      end
+      sleep 0.5 # リクエストの終了を待つ
     }.to change(Micropost, :count).by(-1)
              .and change(ActiveStorage::Blob, :count).by(-1)
   end
@@ -37,13 +40,13 @@ RSpec.describe 'micropost interface', test: :system do
     login_as(user)
     visit root_path
 
-    expect(page).to have_content 'Microposts1'
+    expect(page).to have_content "Microposts\n1"
 
     # micropostが0個のユーザー
     other_user = create(:user)
     login_as(other_user)
     visit root_path
 
-    expect(page).to have_content 'Microposts0'
+    expect(page).to have_content "Microposts\n0"
   end
 end

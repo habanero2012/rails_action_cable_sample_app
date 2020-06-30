@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'user index' do
+RSpec.describe 'user index', test: :system, js: true do
   let(:alice) { create(:user, name: 'alice') }
   let(:bob) { create(:user, name: 'bob') }
 
