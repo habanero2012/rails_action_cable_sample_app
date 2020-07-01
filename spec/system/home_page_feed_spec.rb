@@ -10,7 +10,7 @@ RSpec.describe 'user index', test: :system, js: true do
     alice.follow(bob)
   end
 
-  it 'feed on Home page' do
+  xit 'feed on Home page' do
     expect(alice.feed.include?(alice.microposts.first)).to be(true)
     expect(alice.feed.include?(bob.microposts.first)).to be(true)
 
