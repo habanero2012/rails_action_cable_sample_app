@@ -1,34 +1,21 @@
-if ENV.fetch('CI') { false }
-  # CircleCI環境のwebdriver設定
-  RSpec.configure do |config|
-    config.before(:each, type: :system) do
-      driven_by :rack_test
-    end
+# chrome用dockerイメージを使うように設定する
+Capybara.server_host = Socket.ip_address_list.detect { |addr| addr.ipv4_private? }.ip_address
+Capybara.server_port = 3000
 
-    config.before(:each, type: :system, js: true) do
-      driven_by :selenium_chrome_headless
-    end
-  end
-else
-  # local環境のwebdriver設定
-  # chrome用dockerイメージを使うように設定する
-  Capybara.server_host = Socket.ip_address_list.detect { |addr| addr.ipv4_private? }.ip_address
-  Capybara.server_port = 3000
+Capybara.register_driver :selenium_remote do |app|
+  url = ENV.fetch('SELENIUM_DRIVER_URL') { 'http://chrome:4444/wd/hub' }
+  opts = {desired_capabilities: :chrome, browser: :remote, url: url}
+  Capybara::Selenium::Driver.new(app, opts)
+end
 
-  Capybara.register_driver :selenium_remote do |app|
-    url = "http://chrome:4444/wd/hub"
-    opts = {desired_capabilities: :chrome, browser: :remote, url: url}
-    Capybara::Selenium::Driver.new(app, opts)
+RSpec.configure do |config|
+  config.before(:each, type: :system) do
+    driven_by :rack_test
   end
 
-  RSpec.configure do |config|
-    config.before(:each, type: :system) do
-      driven_by :rack_test
-    end
-
-    config.before(:each, type: :system, js: true) do
-      driven_by :selenium_remote
-      host! "http://#{Capybara.server_host}:#{Capybara.server_port}"
-    end
+  config.before(:each, type: :system, js: true) do
+    driven_by :selenium_remote
+    host! "http://#{Capybara.server_host}:#{Capybara.server_port}"
   end
 end
+

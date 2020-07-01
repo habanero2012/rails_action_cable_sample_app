@@ -4,7 +4,7 @@ RSpec.describe 'micropost interface', test: :system, js: true do
 
   let(:user) { create(:user) }
 
-  it 'micropost interface' do
+  xit 'micropost interface' do
     login_as(user)
 
     visit root_path
