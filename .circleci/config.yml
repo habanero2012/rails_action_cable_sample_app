@@ -8,12 +8,15 @@ references:
       DATABASE_HOST: 127.0.0.1
       DATABASE_PASSWORD: ""
       RAILS_ENV: test
+      SELENIUM_DRIVER_URL: http://localhost:4444/wd/hub
   mysql: &mysql
     image: circleci/mysql:5.7
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: yes
       MYSQL_ROOT_PASSWORD: ""
       MYSQL_DATABASE: rails_action_cable_sample_app_test
+  chrome: &chrome
+    image: selenium/standalone-chrome-debug:3.141.59
 
 jobs:
   build:
@@ -56,6 +59,7 @@ jobs:
     docker:
       - *default_docker_ruby_executor
       - *mysql
+      - *chrome
     steps:
       - checkout
       - restore_cache:
