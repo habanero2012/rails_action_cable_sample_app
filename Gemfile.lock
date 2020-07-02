@@ -335,7 +335,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma (~> 4.3)
-  rails (~> 6.0.2, >= 6.0.2.1)
+  rails (>= 6.0.3.2)
   redis-namespace
   rspec-rails (~> 4.0.0.beta)
   rspec_junit_formatter
