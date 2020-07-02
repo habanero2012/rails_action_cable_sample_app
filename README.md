@@ -48,12 +48,17 @@ sudo docker-compose run --rm app rails db:seed
 sudo docker-compose up
 ```
 
+## テスト
+
 #### rspec実行
 ```bash
 sudo docker-compose run --rm -e RAILS_ENV=test app rspec
 ```
 ※systemスペックのブラウザ実行を確認するにはstandalone-chrome-debugにvnc接続する
+ChromeのVNC Viewerをインストールしてdockerを実行しているipに接続する
 (password: secret)
+
+## その他コマンド
 
 #### gem更新
 ```bash
